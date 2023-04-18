@@ -60,11 +60,11 @@ def create_microsoft_app_tab(
     assert ext.lower() in valid_image_extensions, f"Il faut que 'icon_color' soit un fichier avec une extension d'image '{icon_color}'"
 
     # Vérifier les dimensions de l'icône d'aperçu
-    with Image.open(icon_outline) as im:
+    with Image.open(icon_color) as im:
         assert im.size == (192, 192), f"Il faut que l'image 'icon_outline' ai une taille de 192x192. L'image donnée fait '{im.size}'."
 
     # Vérifier les dimensions de l'icône de couleur
-    with Image.open(icon_color) as im:
+    with Image.open(icon_outline) as im:
         assert im.size == (32, 32), f"Il faut que l'image 'icon_color' ai une taille de 32x32. L'image donnée fait '{im.size}'."
 
     if developer_name is None:
@@ -194,4 +194,4 @@ def is_valid_teams_guid(guid):
 
 
 if __name__ == '__main__':
-    create_microsoft_app_tab('https://www.pierre-chaumont.fr')
+    create_microsoft_app_tab('https://www.google.com')

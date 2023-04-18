@@ -1,0 +1,49 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.12/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.12",
+    "id": "962c20a7-c69b-4645-bab8-855fa5ee9e19",
+    "version": "1.0.0",
+    "packageName": "com.custom.tab",
+    "developer": {
+        "name": "A6019584",
+        "websiteUrl": "https://www.google.com",
+        "privacyUrl": "https://www.google.com/privacy",
+        "termsOfUseUrl": "https://www.google.com/tou",
+        "mpnId": ""
+    },
+    "name": {
+        "short": "Tab",
+        "full": "PersonalTab"
+    },
+    "description": {
+        "short": "Short description here",
+        "full": "Long description here"
+    },
+    "icons": {
+        "outline": "icon-outline.png",
+        "color": "icon-color.png"
+    },
+    "accentColor": "#D85028",
+    "configurableTabs": [],
+    "staticTabs": [
+        {
+            "entityId": "index",
+            "name": "PersonalTab",
+            "contentUrl": "https://www.google.com",
+            "websiteUrl": "https://www.google.com",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "bots": [],
+    "connectors": [],
+    "composeExtensions": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "https://www.google.com"
+    ]
+}
