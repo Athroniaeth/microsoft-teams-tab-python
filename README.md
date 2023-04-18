@@ -11,7 +11,7 @@ Microscopic python library to facilitate the creation of a microsoft teams "tab"
 Clone the project, and import microsoft-teams-tab-python and use the function 'create_microsoft_app_tab()'
 
 ```bash
-  https://github.com/Athroniaeth/microsoft-teams-tab-python.git
+  git clone https://github.com/Athroniaeth/microsoft-teams-tab-python.git
 ```
 
 
