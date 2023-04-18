@@ -49,13 +49,13 @@ Retourne le nom du fichier .zip créé pour l'application Microsoft Teams Tab.
 
 ## Screenshots
 
-![Console Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Console Screenshot](https://github.com/Athroniaeth/microsoft-teams-tab-python/blob/main/images/console_screenshot.PNG)
 
-![Zip Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Zip Screenshot](https://github.com/Athroniaeth/microsoft-teams-tab-python/blob/main/images/zip_screenshot.PNG)
 
-![Add Application Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Add Application Screenshot](https://github.com/Athroniaeth/microsoft-teams-tab-python/blob/main/images/add_application_screenshot.PNG)
 
-![Application Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Application Screenshot](https://github.com/Athroniaeth/microsoft-teams-tab-python/blob/main/images/app_screenshot.PNG)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
