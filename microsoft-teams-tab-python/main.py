@@ -2,6 +2,8 @@ import json
 import os
 import zipfile
 
+from PIL import Image
+
 
 def main():
     pass
@@ -57,6 +59,14 @@ def create_microsoft_app_tab(
     _, ext = os.path.splitext(icon_outline)
     assert ext.lower() in valid_image_extensions, f"Il faut que 'icon_color' soit un fichier avec une extension d'image '{icon_color}'"
 
+    # Vérifier les dimensions de l'icône d'aperçu
+    with Image.open(icon_outline) as im:
+        assert im.size == (192, 192), f"Il faut que l'image 'icon_outline' ai une taille de 192x192. L'image donnée fait '{im.size}'."
+
+    # Vérifier les dimensions de l'icône de couleur
+    with Image.open(icon_color) as im:
+        assert im.size == (32, 32), f"Il faut que l'image 'icon_color' ai une taille de 32x32. L'image donnée fait '{im.size}'."
+
     if developer_name is None:
         import getpass
         developer_name = getpass.getuser()
@@ -64,35 +74,35 @@ def create_microsoft_app_tab(
 
     if tab_shortname is None:
         tab_shortname = 'Tab'
-        print(f"Aucun nom d'application court n'a été donné pour l'argument 'tab_shortname', Nous avons donc choisi le nom court par défaut '{tab_shortname}'.")
+        print(f"Aucun nom d'application court n'a été donné pour l'argument 'tab_shortname', Nous avons donc choisi le nom court par défaut : '{tab_shortname}'.")
 
     if tab_fullname is None:
         tab_fullname = 'PersonalTab'
-        print(f"Aucun nom d'application complet n'a été donné pour l'argument 'tab_fullname', Nous avons donc choisi le nom court par défaut '{tab_fullname}'.")
+        print(f"Aucun nom d'application complet n'a été donné pour l'argument 'tab_fullname', Nous avons donc choisi le nom court par défaut : '{tab_fullname}'.")
 
     if short_description is None:
         short_description = "Short description here"
-        print(f"Aucune description d'application courte n'a été donné pour l'argument 'short_description', Nous avons donc choisi le nom court par défaut '{short_description}'.")
+        print(f"Aucune description d'application courte n'a été donné pour l'argument 'short_description', Nous avons donc choisi le nom court par défaut : '{short_description}'.")
 
     if full_description is None:
         full_description = "Long description here"
-        print(f"Aucune description d'application complète n'a été donné pour l'argument 'full_description', Nous avons donc choisi la description complète par défaut '{full_description}'.")
+        print(f"Aucune description d'application complète n'a été donné pour l'argument 'full_description', Nous avons donc choisi la description complète par défaut : '{full_description}'.")
 
     # Générer un GUID aléatoire si nécessaire
     if not guid:
         guid = get_random_guid()
-        print(f"Vous n'avez pas fournit d'argument 'guid', un guid aléatoire à été générer pour votre application : '{guid}'")
+        print(f"Vous n'avez pas fournit d'argument 'guid', un guid aléatoire à été générer pour votre application : '{guid}'.")
     else:
-        assert is_valid_teams_guid(guid), f"Le guid fournit ne respecte pas le format de guid imposé par Teams '{guid}'"
+        assert is_valid_teams_guid(guid), f"Le guid fournit ne respecte pas le format de guid imposé par Teams '{guid}'."
 
     # Définir les urls par défaut s'ils ne sont pas définis
     if not privacy_url:
         privacy_url = site_url + '/privacy'
-        print(f"Vous n'avez pas fournit d'argument 'privacy_url' pour L'URL de la politique de confidentialité, nous avons donc déterminé que vous respecter le format Teams : '{privacy_url}'")
+        print(f"Vous n'avez pas fournit d'argument 'privacy_url' pour L'URL de la politique de confidentialité, nous avons donc déterminé que vous respecter le format Teams : '{privacy_url}'.")
 
     if not tou_url:
         tou_url = site_url + '/tou'
-        print(f"Vous n'avez pas fournit d'argument 'tou_url pour L'URL des termes d'utilisations, nous avons donc déterminé que vous respecter le format Teams : '{tou_url}'")
+        print(f"Vous n'avez pas fournit d'argument 'tou_url pour L'URL des termes d'utilisations, nous avons donc déterminé que vous respecter le format Teams : '{tou_url}'.")
 
 
     # Créer le fichier zip
@@ -128,10 +138,12 @@ def create_microsoft_app_tab(
             },
             "name": {
                 "short": tab_shortname,
-                "full": tab_fullname},
+                "full": tab_fullname
+            },
             "description": {
                 "short": short_description,
-                "full": full_description},
+                "full": full_description
+            },
             "icons": {
                 "outline": icon_outline,
                 "color": icon_color
@@ -165,7 +177,7 @@ def create_microsoft_app_tab(
 
 
     # Afficher un message de confirmation
-    print(f"Le tab Microsoft Teams '{tab_shortname}' a été créé avec succès sous le nom de fichier '{zip_filename}'")
+    print(f"Le tab Microsoft Teams '{tab_shortname}' a été créé avec succès sous le nom de fichier '{zip_filename}'.")
 
 
 def get_random_guid():
