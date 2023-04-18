@@ -3,10 +3,8 @@
 
 Bibliothèque python microscopique pour faciliter la création d'une application "tab" microsoft teams pour y mettre le site web que vous voulez.
 
-Microscopic python library to facilitate the creation of a microsoft teams "tab" application to put the website you want in it.
 
-
-## Run Locally
+## Lancer localement
 
 Clone the project, and import microsoft-teams-tab-python and use the function 'create_microsoft_app_tab()'
 
@@ -15,7 +13,7 @@ Clone the project, and import microsoft-teams-tab-python and use the function 'c
 ```
 
 
-## Usage/Examples
+## Utilisation / Examples
 
 ```py
 import microsoft-teams-tab-python
